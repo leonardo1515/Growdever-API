@@ -33,6 +33,13 @@ export class TransactionsValidatorMiddleware {
         return RequestError.notFound(res, "Type");
       }
 
+      if (String(type) !== "income" && String(type) !== "outcome") {
+        return res.status(400).send({
+          ok: false,
+          message: `The ${type} type is not accepted, choose the "income" or "outcome" type`,
+        });
+      }
+
       next();
     } catch (error: any) {
       return ServerError.genericError(res, error);

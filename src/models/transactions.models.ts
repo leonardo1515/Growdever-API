@@ -5,7 +5,7 @@ export class Transacoes {
   constructor(
     private _title: string,
     private _value: number,
-    private _type: string
+    private _type: "income" | "outcome"
   ) {
     this._idTransaction = createUuid();
   }
@@ -30,7 +30,7 @@ export class Transacoes {
     return this._type;
   }
 
-  public set type(type: string) {
+  public set type(type: "income" | "outcome") {
     this._type = type;
   }
 

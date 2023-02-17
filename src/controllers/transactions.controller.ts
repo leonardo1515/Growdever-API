@@ -13,13 +13,6 @@ export class TransactionsController {
       const database = new TransactionsDatabase();
       const user = database.getOneUser(userId);
 
-      // if (type !== "income" || type !== "outcome") {
-      //   return res.status(400).send({
-      //     ok: false,
-      //     message: `The ${type} type is not accepted, choose the "income" or "outcome" type`,
-      //   });
-      // }
-
       const newTransaction = new Transacoes(title, Number(value), type);
       user?.tansacoes?.push(newTransaction);
 
